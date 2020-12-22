@@ -14,14 +14,14 @@ class sspmod_privacyidea_Auth_Process_checkClientIP extends SimpleSAML_Auth_Proc
      * enter excluded ip addresses
      * @var array|mixed
      */
-    private $excludeClientIPs = array();
+    private $setFalseClientIPs = array();
 
     public function __construct(array $config, $reserved)
     {
         assert('array' === gettype($config));
 
         parent::__construct($config, $reserved);
-        $this->excludeClientIPs = $config['excludeClientIPs'];
+        $this->setFalseClientIPs = $config['setFalseClientIPs'];
     }
 
     /**
@@ -41,7 +41,7 @@ class sspmod_privacyidea_Auth_Process_checkClientIP extends SimpleSAML_Auth_Proc
         $clientIP = ip2long($clientIP);
 
         $match = false;
-        foreach ($this->excludeClientIPs as $ipAddress) {
+        foreach ($this->setFalseClientIPs as $ipAddress) {
             if (strpos($ipAddress, '-')) {
                 $range = explode('-', $ipAddress);
                 $startIP = ip2long($range[0]);
