@@ -1,3 +1,9 @@
+Version 1.9.1 2021-07-21
+
+    * Fix pass on no token for auth proc filter
+    * Fix auth proc filter configuration
+    * remove SSO feature due to insecurity
+
 Version 1.9 2021-03-24
 
   * Refactor Code
